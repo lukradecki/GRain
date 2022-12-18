@@ -21,5 +21,5 @@ When you want to play just click Play button above Inspector.
 ![screenshot1](screenshots/screenshot5.png)
 
 ## Disclaimer
-This was first ever game I crated using this engine. My main goal was to make something small and easy giving me opportunity to experiment with some of the concepts in game dev.
+This was first ever game I created using this engine. My main goal was to make something small and easy giving me opportunity to experiment with some of the concepts in game dev.
 All the assets were created by me, with the exception to main menu music which is Jingle Bells 8Bit" by Tim Beek (timbeek.com), author gives permission to use his work, with requirement of owner recognition.
