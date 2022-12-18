@@ -68,6 +68,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_a103p")
 
 [node name="heart_count" type="Label" parent="heart"]
+layout_mode = 0
 offset_right = 256.0
 offset_bottom = 256.0
 label_settings = SubResource("LabelSettings_rrjx4")
@@ -86,6 +87,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_mwht0")
 
 [node name="multiplier" type="Label" parent="multiplier"]
+layout_mode = 0
 offset_right = 256.0
 offset_bottom = 256.0
 label_settings = SubResource("LabelSettings_nl82f")
@@ -99,6 +101,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="quit" type="Button" parent="PauseMenu"]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 512.0
 offset_right = 1088.0
@@ -106,6 +109,7 @@ offset_bottom = 576.0
 text = "Quit"
 
 [node name="resume" type="Button" parent="PauseMenu"]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 384.0
 offset_right = 1088.0
@@ -119,6 +123,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="text" type="Label" parent="GameOver"]
+layout_mode = 0
 offset_left = 320.0
 offset_top = 248.0
 offset_right = 1600.0
@@ -129,6 +134,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="final_score" type="Label" parent="GameOver"]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 448.0
 offset_right = 1280.0
@@ -139,6 +145,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="quit" type="Button" parent="GameOver"]
+layout_mode = 0
 offset_left = 1024.0
 offset_top = 576.0
 offset_right = 1280.0
@@ -146,6 +153,7 @@ offset_bottom = 640.0
 text = "Quit"
 
 [node name="play_again" type="Button" parent="GameOver"]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 576.0
 offset_right = 896.0
