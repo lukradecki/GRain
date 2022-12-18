@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://bciuu4kbdehfl"]
+
+[ext_resource type="Texture2D" uid="uid://14c4dp86cxv2" path="res://imgs/background2.svg" id="1_3hxvv"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_wa7rm"]
+[ext_resource type="AudioStream" uid="uid://dhcgl0e3rtgqd" path="res://sounds/[Royalty FREE Music] Jingle Bells 8Bit [ZX4Q1EF9tzQ].wav" id="3_0ab5n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gy48c"]
+font_size = 79
+font_color = Color(0.827451, 0.639216, 1, 1)
+outline_size = 10
+outline_color = Color(0.556863, 0.2, 0.521569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_115ha"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lh0ql"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="TextureRect"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_3hxvv")
+script = ExtResource("2_wa7rm")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+offset_left = 832.0
+offset_top = 712.0
+offset_right = 1088.0
+offset_bottom = 776.0
+text = "Quit"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 512.0
+offset_right = 1088.0
+offset_bottom = 576.0
+text = "Play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 192.0
+offset_right = 1216.0
+offset_bottom = 384.0
+text = "Gift Rain"
+label_settings = SubResource("LabelSettings_gy48c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 1064.0
+offset_right = 416.0
+offset_bottom = 1080.0
+text = "Background music: Jingle Bells 8Bit\" by Tim Beek (timbeek.com)"
+label_settings = SubResource("LabelSettings_115ha")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ab5n")
+autoplay = true
+bus = &"Music"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 608.0
+offset_right = 1088.0
+offset_bottom = 664.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Music"
+label_settings = SubResource("LabelSettings_lh0ql")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]

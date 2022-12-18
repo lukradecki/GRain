@@ -1,5 +1,32 @@
-[gd_scene format=3 uid="uid://coas14k2kj43p"]
+[gd_scene load_steps=5 format=3 uid="uid://coas14k2kj43p"]
+
+[ext_resource type="Script" path="res://multiplier.gd" id="1_wm2ml"]
+[ext_resource type="Texture2D" uid="uid://bc73aduvjlweh" path="res://imgs/multiplier_256x256.svg" id="1_y30b6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7t6l"]
+radius = 64.4981
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmb6k"]
+font_size = 30
+font_color = Color(0.709804, 0.694118, 0.588235, 1)
 
 [node name="Multiplier" type="Area2D"]
+script = ExtResource("1_wm2ml")
 
 [node name="image" type="Sprite2D" parent="."]
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_y30b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l7t6l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "*2"
+label_settings = SubResource("LabelSettings_mmb6k")
+horizontal_alignment = 1
+vertical_alignment = 1

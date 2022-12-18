@@ -13,9 +13,12 @@ extends Node2D
 @onready var GameOver = get_node("GameOver")
 @onready var final_score = get_node("GameOver/final_score")
 
+@onready var PauseMenu = get_node("PauseMenu")
+
 @onready var gift_scene = load("res://gift.tscn")
 @onready var coal_scene = load("res://coal.tscn")
 @onready var heart_scene = load("res://heart.tscn")
+@onready var multiplier_scene = load("res://multiplier.tscn")
 
 var score: int = 0;
 var heart_count: int = 0;
@@ -38,6 +41,9 @@ func spawn(count: int):
 		if spawn_chance < 0.005:
 			instance = heart_scene.instantiate()
 			instance.heart_out_of_scope.connect(_on_heart_out_of_scope)
+		elif spawn_chance < 0.01:
+			instance = multiplier_scene.instantiate()
+			instance.multiplier_out_of_scope.connect(_on_multiplier_out_of_scope)
 		elif spawn_chance < 0.4:
 			instance = coal_scene.instantiate()
 			instance.coal_out_of_scope.connect(_on_coal_out_of_scope)
@@ -85,7 +91,12 @@ func add_score(num: int):
 	if tmp > max_number_of_objects:
 		max_number_of_objects = tmp
 	
-	
+func multiplie_score(num:int):
+	score *= (num+score_multiplier)
+	score_label.text = "Score: %010d" % score
+	var tmp = floori(score/5000)
+	if tmp > max_number_of_objects:
+		max_number_of_objects = tmp
 	
 	
 func set_score(num: int):
@@ -120,6 +131,10 @@ func _on_coal_out_of_scope(coal: Coal):
 func _on_heart_out_of_scope(heart: Heart):
 	objects.remove_child(heart)
 	number_of_objects -= 1
+	
+func _on_multiplier_out_of_scope(multiplier: Multiplier):
+	objects.remove_child(multiplier)
+	number_of_objects -= 1
 
 func _on_bag_area_entered(area):
 	if area.get_class() == "Gift":
@@ -133,16 +148,27 @@ func _on_bag_area_entered(area):
 	if area.get_class() == "Heart":
 		powerup_sound.play()
 		change_heart(1)
+	if area.get_class() == "Multiplier":
+		powerup_sound.play()
+		multiplie_score(2)
 		
 	objects.remove_child(area)
 	number_of_objects -= 1
 
 
 func _on_timer_timeout():
-	if number_of_objects < max_number_of_objects:
-		spawn(randi() % 8 + 1);
+	if number_of_objects < max_number_of_objects and not get_tree().paused:
+		spawn(randi() % clampi((10+(score/1000)-1), 10,100) + 1);
 
-
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE:
+			if get_tree().paused:
+				PauseMenu.hide()
+				get_tree().paused = false
+			else:
+				PauseMenu.show()
+				get_tree().paused = true
 
 
 func _on_quit_pressed():
@@ -151,4 +177,9 @@ func _on_quit_pressed():
 
 func _on_play_again_pressed():
 	get_tree().change_scene_to_file("res://main_scene.tscn")
+	get_tree().paused = false
+
+
+func _on_resume_pressed():
+	PauseMenu.hide()
 	get_tree().paused = false

@@ -23,17 +23,23 @@ _global_script_classes=[{
 "class": &"Heart",
 "language": &"GDScript",
 "path": "res://heart.gd"
+}, {
+"base": "Area2D",
+"class": &"Multiplier",
+"language": &"GDScript",
+"path": "res://multiplier.gd"
 }]
 _global_script_class_icons={
 "Coal": "",
 "Gift": "",
-"Heart": ""
+"Heart": "",
+"Multiplier": ""
 }
 
 [application]
 
-config/name="chd"
-run/main_scene="res://main_scene.tscn"
+config/name="Gift Rain"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
