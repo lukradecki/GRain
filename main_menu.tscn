@@ -26,9 +26,9 @@ script = ExtResource("2_wa7rm")
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 712.0
+offset_top = 704.0
 offset_right = 1088.0
-offset_bottom = 776.0
+offset_bottom = 768.0
 text = "Quit"
 
 [node name="Play" type="Button" parent="."]
