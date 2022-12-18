@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ynmtk8hq4th"]
+
+[ext_resource type="Script" path="res://bag.gd" id="1_o71xm"]
+[ext_resource type="Texture2D" uid="uid://c0htrr2axkkcd" path="res://imgs/santa_bag_256x256.svg" id="2_yqjvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh2hp"]
+size = Vector2(122, 6.5)
+
+[node name="Bag" type="Area2D"]
+script = ExtResource("1_o71xm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yqjvo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(121, 73)
+shape = SubResource("RectangleShape2D_bh2hp")

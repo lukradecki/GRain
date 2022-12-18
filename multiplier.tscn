@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://coas14k2kj43p"]
+
+[node name="Multiplier" type="Area2D"]
+
+[node name="image" type="Sprite2D" parent="."]

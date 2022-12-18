@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsacvwiu5q5q5"]
+
+[ext_resource type="Script" path="res://gift.gd" id="1_u1yiw"]
+[ext_resource type="Texture2D" uid="uid://7oxjj610y8mx" path="res://imgs/red_giftbox_256x256.svg" id="2_0pmhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2sts"]
+size = Vector2(194, 226)
+
+[node name="Gift" type="Area2D"]
+script = ExtResource("1_u1yiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_c2sts")
+
+[node name="image" type="Sprite2D" parent="."]
+texture = ExtResource("2_0pmhc")

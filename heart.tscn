@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ah6me0q0bux"]
+
+[ext_resource type="Texture2D" uid="uid://clamfdwmpbgx5" path="res://imgs/heart_256x256.svg" id="1_8lhy7"]
+[ext_resource type="Script" path="res://heart.gd" id="1_rs2v2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueh23"]
+size = Vector2(96, 96)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y83n7"]
+font_size = 30
+font_color = Color(0.709804, 0.694118, 0.588235, 1)
+
+[node name="Heart" type="Area2D"]
+script = ExtResource("1_rs2v2")
+
+[node name="image" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8lhy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ueh23")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+text = "+1"
+label_settings = SubResource("LabelSettings_y83n7")
+horizontal_alignment = 1
+vertical_alignment = 1
